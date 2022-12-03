@@ -125,17 +125,15 @@ function ListarTodosLogin()
 
 
 
-function GetAcesso($id)
+function GetAcesso($dslogin)
 {
-    $retorno = selectRegistros("select * from avaliacaoaluno where idavaliacaoaluno ='" . $id . "'");
-
-    return $retorno[0];
+    return selectRegistros("select * from login where dslogin ='" . $dslogin . "'")[0];
 }
 
-function attacesso($id, $senha)
+function attacesso($senha, $id)
 {
 
-    $sql = " update login set `dssenha` = $senha where idal = $id   ";
+    $sql = " update login set `dssenha` = '" . trim(md5($senha)) . "' where dslogin = '$id '  ";
 
     updateRegistro($sql);
 }

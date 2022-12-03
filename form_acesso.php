@@ -34,7 +34,7 @@ require_once("./BancoDeDados/login.php");
             <th>Usuário</th>
             <th>Senha</th>
             <th>Aluno</th>
-     
+
             <th> Excluir </th>
         </thead>
         <tbody>
@@ -44,15 +44,15 @@ require_once("./BancoDeDados/login.php");
 
 
                 echo '<tr>' .
-                
-                '        <td>' . $login['dslogin'] . '</td>' .
-                '        <td> <a href=form_acesso.php?alterarid=' . $login['dssenha'] . '>' . $login['dssenha'] . '</a></td>' .
-                
-                ' <td>' . $login['nmaluno'] . '</td>' .
+
+                    '        <td> <a href=form_acesso.php?alterarid=' . $login['dslogin'] . '>' . $login['dslogin'] . '</a></td>' .
+                    '        <td>' . $login['dssenha'] . '</td>' .
+
+                    ' <td>' . $login['nmaluno'] . '</td>' .
                     "<td>" .
                     '<form action="proc_del_acesso.php" method="POST" >' .
-                         '<input type="hidden" name ="idAcessoDel" value="' .  $login['idaluno']  . '">' .
-                        '<input type="submit"  value=" Excluir "/>' .
+                    '<input type="hidden" name ="idAcessoDel" value="' .  $login['idaluno']  . '">' .
+                    '<input type="submit"  value=" Excluir "/>' .
                     "</form>" .
                     "</td>" .
                     "</tr>";
@@ -85,17 +85,16 @@ require_once("./BancoDeDados/login.php");
         </tfoot>
     </table>
     <hr />
-        <?php
+    <?php
 
-        if (isset($_GET['alterarid'])) {
-            echo '<form action="proc_upd_acesso.php" method="POST">';
-            echo '    <input type="text" name="dssenha" value=" ' . GetAcesso($_GET['alterarid'])['dssenha']. ' " />';
-            echo '    <input type="hidden" name="idTrocasenha" value="' . $_GET['alterarid'] . '" />';
-          
-            echo '    <input type="submit" value="alterar" />';
-            echo '</form>';
-        }
-        ?>
-    </div>
+    if (isset($_GET['alterarid'])) {
+        echo '<form action="proc_upd_acesso.php" method="POST">';
+        echo '    <input type="text" name="dssenha" value=" ' . GetAcesso($_GET['alterarid'])['dssenha'] . ' " />';
+        echo '    <input type="hidden" name="idTrocasenha" value="' . $_GET['alterarid'] . '" />';
+
+        echo '    <input type="submit" value="alterar" />';
+        echo '</form>';
+    }
+    ?>
 </div>
-
+</div>

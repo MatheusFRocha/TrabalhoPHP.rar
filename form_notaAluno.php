@@ -4,7 +4,7 @@
 
     <?php
     require("menu.php");
-    
+
     require_once("./BancoDeDados/avaliacao.php");
     require_once("./BancoDeDados/NotasAlunos.php");
 
@@ -66,7 +66,7 @@
 
 
                 '<form action="proc_del_notas.php" method="POST">' .
-                '    <input type="hidden" name="idnotasDEL" value="' . $registro['idaluno'] . '" />' .
+                '    <input type="hidden" name="idnotasDEL" value="' . $registro['idavaliacaoaluno'] . '" />' .
                 '    <input type="submit" value="Excluir" />' .
                 '</form>' .
                 '        </td>' .

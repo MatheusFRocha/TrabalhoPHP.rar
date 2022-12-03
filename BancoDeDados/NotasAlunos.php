@@ -57,8 +57,6 @@ function att($id, $nota)
     $sql = " update avaliacaoaluno set `nota` = $nota where idavaliacaoaluno = $id   ";
 
     updateRegistro($sql);
-    
-
 }
 
 
@@ -85,7 +83,7 @@ function AgetNota($idavaliacaoaluno)
 
 function deleteNota($id)
 {
-    $sql = "DELETE FROM AVALIACAOALUNO WHERE idaluno=" . $id;
+    $sql = "DELETE FROM avaliacaoaluno WHERE idavaliacaoaluno=" . $id;
 
     return deleteRegistro($sql);
 }

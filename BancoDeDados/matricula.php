@@ -29,50 +29,52 @@ function existeMatricula($dsmatricula)
     else return false;
 }
 
+
+
+
 //cadastro de nota para o aluno
-function cadastrarMatricula($dsmatricula)
+function cadastrarMatricula($idaluno, $idmateria)
 {
 
 
-    $sql = "insert into alunomatriculado(dsmatricula) values ('$dsmatricula')";
+    $sqlInsert = "insert into alunomatriculado (idaluno, idmateria) values ( @idaluno, @idmateria)";
+
+    $sql = str_replace("@idaluno", $idaluno, $sqlInsert);
+    $sql = str_replace("@idmateria", $idmateria, $sql);
 
 
     insereRegistro($sql);
 }
-
-function att($id, $nota)
+function deleteMatricula($id)
 {
+    $sql = "DELETE FROM alunomatriculado WHERE idalunomatriculado=" . $id;
 
-    $sql = " update avaliacaoaluno set `nota` = $nota where idavaliacaoaluno = $id   ";
-
-    updateRegistro($sql);
+    return deleteRegistro($sql);
 }
-
-
-
-function GetNotas($id)
+function ListaMatriculaAlunos()
 {
-    $retorno = selectRegistros("select * from avaliacaoaluno where idavaliacaoaluno ='" . $id . "'");
+    $sqlselect =  "SELECT * FROM aluno A INNER JOIN alunomatriculado AM ON A.idaluno = AM.idaluno INNER JOIN materia M ON M.idmateria = AM.idmateria";
+
+
+
+    return selectRegistros($sqlselect);
+}
+function getName($id)
+{
+    $retorno = selectRegistros("select * from alunomatriculado where idalunomatriculado='" . $id . "'");
+
+    return $retorno[0]['idmateria'];
+}
+function GetMatricula($id)
+{
+    $retorno = selectRegistros("select * from alunomatriculado where idalunomatriculado ='" . $id . "'");
 
     return $retorno[0];
 }
-
-
-//var_dump(listaAluno("teste"));
-//var_dump(listaAlunos());
-
-function AgetNota($idavaliacaoaluno)
+function AttMatricula($materia, $id)
 {
-    $retorno = selectRegistros("select * from nota where nmnota='" . $idavaliacaoaluno     . "'");
 
-    return $retorno[0]['nota'];
-}
+    $sql = " update alunomatriculado set `idmateria` = $materia where idalunomatriculado = '$id '  ";
 
-
-
-function deleteMatricula($id)
-{
-    $sql = "DELETE FROM matricula WHERE idmatricula=" . $id;
-
-    return deleteRegistro($sql);
+    updateRegistro($sql);
 }

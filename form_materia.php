@@ -35,7 +35,7 @@
 
         foreach ($materia as $registro) {
             echo '<tr>' .
-                '        <td>' . $registro['dsmateria'] . '</td>' .
+                '        <td><a href=form_materia.php?alterarid=' . $registro['idmateria'] . '>' . $registro['dsmateria'] . '</a></td>' .
                 ' <td>' .
 
 
@@ -78,8 +78,8 @@
         <?php
 
         if (isset($_GET['alterarid'])) {
-            echo '<form action="proc_upd_nota.php" method="POST">';
-            echo '    <input type="text" name="nota" value=" ' . GetNotas($_GET['alterarid'])['nota'] . ' " />';
+            echo '<form action="proc_upd_materia.php" method="POST">';
+            echo '    <input type="text" name="materia" value=" ' . GetMaterias($_GET['alterarid'])['dsmateria'] . ' " />';
             echo '    <input type="hidden" name="idTroca" value="' . $_GET['alterarid'] . '" />';
             echo '    <input type="submit" value="alterar" />';
             echo '</form>';

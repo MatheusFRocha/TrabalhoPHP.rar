@@ -40,34 +40,6 @@ function cadastrarMateria($dsmateria)
     insereRegistro($sql);
 }
 
-function att($id, $nota)
-{
-
-    $sql = " update avaliacaoaluno set `nota` = $nota where idavaliacaoaluno = $id   ";
-
-    updateRegistro($sql);
-}
-
-
-
-function GetNotas($id)
-{
-    $retorno = selectRegistros("select * from avaliacaoaluno where idavaliacaoaluno ='" . $id . "'");
-
-    return $retorno[0];
-}
-
-
-//var_dump(listaAluno("teste"));
-//var_dump(listaAlunos());
-
-function AgetNota($idavaliacaoaluno)
-{
-    $retorno = selectRegistros("select * from nota where nmnota='" . $idavaliacaoaluno     . "'");
-
-    return $retorno[0]['nota'];
-}
-
 
 
 function deleteMateria($id)
@@ -75,4 +47,16 @@ function deleteMateria($id)
     $sql = "DELETE FROM materia WHERE idmateria=" . $id;
 
     return deleteRegistro($sql);
+}
+function GetMaterias($id)
+{
+    $retorno = selectRegistros("select * from materia where idmateria ='" . $id . "'");
+
+    return $retorno[0];
+}
+function setMateriaName($id, $nome)
+{
+    $sql = "UPDATE materia SET dsmateria='" . $nome . "' WHERE idmateria=" . $id;
+
+    return updateRegistro($sql);
 }
