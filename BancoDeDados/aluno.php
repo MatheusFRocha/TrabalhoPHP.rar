@@ -34,17 +34,35 @@ function cadastrarAluno($nome)
     //die($nome);
     global $novoAluno;
 
-    $sql = str_replace("@",$nome,$novoAluno);
+    $sql = str_replace("@", $nome, $novoAluno);
 
     return insereRegistro($sql);
 }
 
-function getName($id)
+function getNameAluno($id)
 {
     $retorno = selectRegistros("select * from aluno where idaluno='" . $id . "'");
 
-    return $retorno[0]['nmaluno'];
+
+    return $retorno[0];
 }
+
+
+function verificanomealuno($nomealuno)
+{
+
+    $retorno   = selectRegistros("select * from aluno where nmaluno ='" . $nomealuno . "'");
+
+    if (count($retorno) > 0) {
+
+        return True;
+    } else {
+        return false;
+    }
+}
+
+
+
 
 function setName($id, $nome)
 {
@@ -56,9 +74,8 @@ function setName($id, $nome)
 //var_dump(listaAlunos());
 function delID($id)
 {
-    $sql = "DELETE FROM ALUNO  WHERE idaluno=" . $id;   
+    $sql = "DELETE FROM ALUNO  WHERE idaluno=" . $id;
 
     return deleteRegistro($sql);
 }
 
-?>

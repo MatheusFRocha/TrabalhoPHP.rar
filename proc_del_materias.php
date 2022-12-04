@@ -31,3 +31,4 @@ if (isset($_POST['idmateriaDEL'])) {
         header('Location: form_materia.php');
     }
 }
+ 

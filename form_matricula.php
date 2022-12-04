@@ -1,4 +1,6 @@
-<?php require("header.php") ?>
+<?php require("header.php")
+
+?>
 
 <body>
 
@@ -7,6 +9,7 @@
 
     require_once("./BancoDeDados/materia.php");
     require_once("./BancoDeDados/matricula.php");
+    require_once("./BancoDeDados/aluno.php");
 
     ?>
 
@@ -20,7 +23,7 @@
             </select>
             <select name="idaluno">
                 <?php
-                $alunos = ListarAlunosValidos();
+                $alunos = listaAlunos();
 
                 foreach ($alunos as $aluno) {
                     echo '<option value="' . $aluno['idaluno'] . '">' . $aluno['nmaluno'] . "</option>";
@@ -67,7 +70,7 @@
         foreach ($matricula as $registro) {
             echo '<tr>' .
 
-                '        <td> <a href=form_matricula.php?alterarid=' . $registro['idaluno'] . '>' . $registro['nmaluno'] . ' </a></td>' .
+                '        <td> <a href=form_matricula.php?alterarid=' . $registro['idalunomatriculado'] . '>' . $registro['nmaluno'] . ' </a></td>' .
                 '        <td>' . $registro['idalunomatriculado'] . '</td>' .
                 '        <td>' . $registro['dsmateria'] . '</td>' .
                 ' <td>' .

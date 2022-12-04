@@ -5,7 +5,7 @@ Trata-se penas de um modelo didático. Não é uma solução profissional
 $tabela_de_erro = array(
     "tams" => "Tamanho de senha inválido!",
     "tamu" => "Tamanho de usuario inválido!",
-	"tame" => "Tamanho de e-mail inválido!",
+    "tame" => "Tamanho de e-mail inválido!",
     "inva" => "Caracteres inválidos",
     "nulo" => "Tamanho nulo não suportado",
     "ema1" => "Formato de e-mail inválido",
@@ -25,6 +25,7 @@ function caracteresInvalidos($valor)
     if (strstr($valor, '>')) return true;
     if (strstr($valor, '<')) return true;
     if (strstr($valor, '--')) return true;
+    if (strstr($valor, '*')) return true;
 
     return false;
 }
@@ -74,4 +75,3 @@ function textoLivre($texto)
 //var_dump(membroValido("valorsenha","senha"));
 //var_dump(membroValido("valorsenh","senha"));
 //var_dump(membroValido("valorsenha<","senha"));
-?>

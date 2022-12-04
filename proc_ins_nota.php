@@ -12,7 +12,7 @@ $idaluno =  $_POST["idaluno"];
 
 
 
-if ($dsnota >= 10) {
+if ($dsnota >= 10 or null) {
     echo "padrão de nota inválido";
 } else {
     cadastrarNotaAluno($idaavaliacao, $dsnota, $idaluno);

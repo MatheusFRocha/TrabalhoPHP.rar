@@ -6,8 +6,11 @@ require_once("./BancoDeDados/login.php"); //verificação da exclusão
 
 
 
-$id = $_POST["idAcessoDel"];
+$id = $_POST["idacessoDel"];
+if (existeacessomatricula($id)) {
 
-var_dump($id);
-
-excluiacesso($id);
+    die("Aluno tem matricula cadastrada!");
+} else {
+    excluiacesso($id);
+    header("Location: form_acesso.php?del=0");
+}

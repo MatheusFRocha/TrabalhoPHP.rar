@@ -15,6 +15,7 @@
         <form action="proc_ins_aluno.php" method="POST">
             <label>Aluno a cadastrar: <input type="text" name="cadAluno" size="30" maxsize="30" /></label>
             <input type="submit" value="Cadastrar" />
+
         </form>
         <hr />
         <?php
@@ -74,7 +75,7 @@
         <?php
         if (isset($_GET['alterarid'])) {
             echo '<form action="proc_upd_aluno.php" method="POST">';
-            echo '    <input type="text" name="nmaluno" value=" ' . getName($_GET['alterarid']) . ' " />';
+            echo '    <input type="text" name="nmaluno" value=" ' . getNameAluno($_GET['alterarid'])['nmaluno'] . ' " />';
             echo '    <input type="hidden" name="idalunoUPD" value="' . $_GET['alterarid'] . '" />';
             echo '    <input type="submit" value="alterar" />';
             echo '</form>';

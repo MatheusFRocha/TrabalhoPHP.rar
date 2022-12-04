@@ -39,9 +39,18 @@ function cadastrarMateria($dsmateria)
 
     insereRegistro($sql);
 }
+function VerificaMateria($nomemateria)
+{
 
+    $retorno   = selectRegistros("select * from materia where dsmateria ='" . $nomemateria . "'");
 
+    if (count($retorno) > 0) {
 
+        return True;
+    } else {
+        return false;
+    }
+}
 function deleteMateria($id)
 {
     $sql = "DELETE FROM materia WHERE idmateria=" . $id;

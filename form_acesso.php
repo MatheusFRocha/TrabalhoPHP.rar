@@ -51,7 +51,7 @@ require_once("./BancoDeDados/login.php");
                     ' <td>' . $login['nmaluno'] . '</td>' .
                     "<td>" .
                     '<form action="proc_del_acesso.php" method="POST" >' .
-                    '<input type="hidden" name ="idAcessoDel" value="' .  $login['idaluno']  . '">' .
+                    '<input type="hidden" name ="idacessoDel" value="' .  $login['idaluno']  . '">' .
                     '<input type="submit"  value=" Excluir "/>' .
                     "</form>" .
                     "</td>" .

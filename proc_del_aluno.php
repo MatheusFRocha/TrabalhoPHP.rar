@@ -10,10 +10,12 @@ if (isset($_POST['idalunoDEL'])) {
         die("Caracteres inválidos detectados!");
     } else {
         $id = trim($_POST['idalunoDEL']);
+
+       
         if (liberarExclusao($id)) {
             if ($id != 1) {
                 delID($id);
-
+              
                 foreach (ListamatriculaALuno() as $matricula) {
                     if ($matricula['idaluno'] == $idMateria) {
                         $podeexcluir = false;
@@ -21,11 +23,14 @@ if (isset($_POST['idalunoDEL'])) {
                 }
 
                 header("Location: form_aluno.php?del=1");
+                echo "err1";
             } else {
                 header("Location: form_aluno.php?del=2");
+                echo "teste";
             }
         } else {
             header("Location: form_aluno.php?del=0");
+            echo "teste2";
         }
     }
 }

@@ -76,7 +76,7 @@ function revalidarLogin()
 
 function liberarExclusao($id)
 {
-    $sql = "SELECT * FROM login WHERE materia=" . $id;
+    $sql = "SELECT * FROM login WHERE idaluno=" . $id;
 
     $login = selectRegistros($sql);
 
@@ -136,4 +136,15 @@ function attacesso($senha, $id)
     $sql = " update login set `dssenha` = '" . trim(md5($senha)) . "' where dslogin = '$id '  ";
 
     updateRegistro($sql);
+}
+
+
+//verifica se existe algum acesso na tabela de matricula.
+function existeacessomatricula($id)
+{
+
+    $retorno = selectRegistros("SELECT * FROM alunomatriculado M 
+    INNER JOIN login L ON M.idaluno = L.idaluno where M.idaluno = $id");
+
+    return $retorno;
 }

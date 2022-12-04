@@ -7,6 +7,7 @@
 
     require_once("./BancoDeDados/avaliacao.php");
     require_once("./BancoDeDados/NotasAlunos.php");
+    require_once("./BancoDeDados/aluno.php");
 
     ?>
 
@@ -19,16 +20,16 @@
             <label>Nota: <input name="dsnota" type="number"> </label>
             <select name="idavaliacao">
                 <?php
-                $avaliacoes = ListaAvaliacoes();
+                $materias = ListaAvaliacoes();
 
-                foreach ($avaliacoes as $avaliacao) {
+                foreach ($materias as $avaliacao) {
                     echo '<option value="' . $avaliacao['idavaliacao'] . '">' . $avaliacao['dsavaliacao'] . "</option>";
                 }
                 ?>
             </select>
             <select name="idaluno">
                 <?php
-                $alunos = ListarAlunosValidos();
+                $alunos = listaAlunos();
 
                 foreach ($alunos as $aluno) {
                     echo '<option value="' . $aluno['idaluno'] . '">' . $aluno['nmaluno'] . "</option>";

@@ -1,8 +1,12 @@
 <?php
 
+use function PHPSTORM_META\type;
+
 require_once("header.php");
 require_once("./BancoDeDados/aluno.php");
 require_once("valida_formulario.php");
+require_once("./BancoDeDados/matricula.php");
+
 
 if (!caracteresInvalidos($_POST['cadAluno']) && trim($_POST['cadAluno']) != "") {
     $valor = trim($_POST['cadAluno']);

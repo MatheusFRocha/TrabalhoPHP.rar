@@ -59,7 +59,7 @@ function ListaMatriculaAlunos()
 
     return selectRegistros($sqlselect);
 }
-function getName($id)
+function getNameMatricula($id)
 {
     $retorno = selectRegistros("select * from alunomatriculado where idalunomatriculado='" . $id . "'");
 
@@ -74,7 +74,8 @@ function GetMatricula($id)
 function AttMatricula($materia, $id)
 {
 
-    $sql = " update alunomatriculado set `idmateria` = $materia where idalunomatriculado = '$id '  ";
+    $sql = "UPDATE alunomatriculado SET `idmateria`=  $materia   WHERE idalunomatriculado=" . $id;
 
-    updateRegistro($sql);
+
+    return updateRegistro($sql);
 }

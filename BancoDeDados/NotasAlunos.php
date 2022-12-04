@@ -3,7 +3,7 @@ require_once("mysql.php");
 require_once("valida_formulario.php");
 
 $sqlSelect = "select * from aluno where lower(nmaluno) like '%";
-$novoNota = "insert into avaliacaoaluno(idavaliacao, idaluno, idnota) values (1@, 2@, 3@)";
+$sqlInsert = "insert into avaliacaoaluno(idavaliacao, nota, idaluno ) values (@idavaliacao, @nota, @idaluno )";
 
 
 
@@ -36,15 +36,13 @@ function AexisteAluno($nome)
 //cadastro de nota para o aluno
 function cadastrarNotaAluno($avaliacao, $nota, $idaluno)
 {
-
-
-    $sqlInsert = "insert into avaliacaoaluno(idavaliacao, idaluno, nota) values (@idavaliacao, @idaluno, @nota)";
+    global $sqlInsert;
 
     $sql = str_replace("@nota", $nota, $sqlInsert);
     $sql = str_replace("@idavaliacao", $avaliacao, $sql);
     $sql = str_replace("@idaluno", $idaluno, $sql);
 
-
+    echo $sql;
 
 
 
