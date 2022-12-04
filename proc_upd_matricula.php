@@ -6,7 +6,6 @@ require_once("valida_formulario.php");
 $id = $_POST['idTroca'];
 $materia = trim($_POST['materia']);
 
-var_dump($materia);
-var_dump($id);
+
 
 AttMatricula($materia, $id);

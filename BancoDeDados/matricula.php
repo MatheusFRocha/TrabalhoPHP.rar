@@ -53,8 +53,8 @@ function deleteMatricula($id)
 }
 function ListaMatriculaAlunos()
 {
-    $sqlselect =  "SELECT * FROM aluno A INNER JOIN alunomatriculado AM ON A.idaluno = AM.idaluno INNER JOIN materia M ON M.idmateria = AM.idmateria";
-
+    // $sqlselect =  "SELECT * FROM aluno A INNER JOIN alunomatriculado AM ON A.idaluno = AM.idaluno INNER JOIN materia M ON M.idmateria = AM.idmateria";
+    $sqlselect = "SELECT * FROM aluno A INNER JOIN alunomatriculado AM ON A.idaluno = AM.idaluno INNER JOIN materia M ON M.idmateria = AM.idmateria inner join avaliacaoaluno AV on AV.idavaliacao";
 
 
     return selectRegistros($sqlselect);
@@ -78,4 +78,11 @@ function AttMatricula($materia, $id)
 
 
     return updateRegistro($sql);
+}
+function ListaAlunosMatriculados()
+{
+    $sqlselect =  "SELECT * FROM aluno A INNER JOIN alunomatriculado AM ON A.idaluno = AM.idaluno INNER JOIN materia M ON M.idmateria = AM.idmateria";
+
+
+    return selectRegistros($sqlselect);
 }

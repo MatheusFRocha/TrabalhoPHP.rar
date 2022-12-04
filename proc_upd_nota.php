@@ -4,6 +4,10 @@ require_once("./BancoDeDados/NotasAlunos.php");
 require_once("valida_formulario.php");
 
 $id = $_POST['idTroca'];
-$nota = $_POST['nota'];
+$nota = trim($_POST['nota']);
 
-att($id, $nota);
+if ($nota > 10) {
+    die("Nota do aluno não pode ultrapassar 10!");
+} else {
+    att($id, $nota);
+}

@@ -42,10 +42,6 @@ function cadastrarNotaAluno($avaliacao, $nota, $idaluno)
     $sql = str_replace("@idavaliacao", $avaliacao, $sql);
     $sql = str_replace("@idaluno", $idaluno, $sql);
 
-    echo $sql;
-
-
-
     insereRegistro($sql);
 }
 
@@ -84,4 +80,11 @@ function deleteNota($id)
     $sql = "DELETE FROM avaliacaoaluno WHERE idavaliacaoaluno=" . $id;
 
     return deleteRegistro($sql);
+}
+function existenotamateria($id) // verifica se o aluno já tem nota cadastrada para aquela matéria
+{
+
+    $retorno = selectRegistros("SELECT * FROM materia where idmateria");
+
+    return $retorno;
 }

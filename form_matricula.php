@@ -53,7 +53,7 @@
         <hr />
         <?php
 
-        $matricula = ListaMatriculaAlunos();
+        $matricula = ListaAlunosMatriculados();
 
         echo "<table>" .
             "<thead>" .
